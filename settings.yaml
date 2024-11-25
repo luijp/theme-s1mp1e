@@ -1,7 +1,7 @@
 apiVersion: v1alpha1
 kind: Setting
 metadata:
-  name: theme-starter-setting
+  name: theme-s1mp1e-setting
 spec:
   forms:
     - group: style
@@ -11,3 +11,14 @@ spec:
           name: background_color
           label: 背景颜色
           value: "#f2f2f2"
+    - group: base
+      label: 基础设置
+      formSchema:
+        - $formkit: text
+          name: title
+          label: 标题
+          value: ""
+        - $formkit: attachment
+          name: logo
+          label: logo
+          value: ""

@@ -19,8 +19,44 @@
     </th:block>
   </head>
   <body th:style="'background-color: '+${theme.config.style.background_color ?: '#f2f2f2'}">
-    <section>
-      <th:block th:replace="${content}" />
-    </section>
+    <div class="container">
+      <div class="header-container">
+        <div class="logo-container">
+          <div class="logo" th:style="|background: url(${theme.config.base.logo}) no-repeat; background-size: cover;|">
+          </div>
+          <div class="title" th:text="${theme.config.base.title}"></div>
+        </div>
+
+        <div class="menu-container" th:with="menu = ${menuFinder.getPrimary()}">
+          <ul>
+            <li th:each="menuItem : ${menu.menuItems}">
+              <a th:href="@{${menuItem.status.href}}"
+                 th:text="${menuItem.status.displayName}"
+                 th:target="${menuItem.spec.target?.value}"
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="content">
+        <th:block th:replace="${content}" />
+      </div>
+    </div>
+    <div class="footer-container">
+      <div class="footer">
+        <div class="footer-left">
+          <div class="copyright">&copy; 2024</div>
+          <div class="site-info"></div>
+          <div class="theme">Powered By S1mp1e</div>
+        </div>
+        <div class="footer-right">
+          <div class="icp">萌备XXXXXXXXX号</div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const domainName = window.location.hostname;
+      document.querySelector('.site-info').innerText = domainName;
+    </script>
   </body>
 </html>
