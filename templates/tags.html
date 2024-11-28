@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html
   xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{layout :: html(head = null,content = ~{::content})}"
+  th:replace="~{layout :: html(head = ~{::head},content = ~{::content})}"
 >
+<th:block th:fragment="head">
+  <link rel="stylesheet" th:href="@{/assets/css/archive.css}" />
+</th:block>
+
   <th:block th:fragment="content">
     <h1>标签</h1>
-    <ul>
-      <li th:each="tag : ${tags}">
-        <a
-          th:href="@{${tag.status.permalink}}"
-          th:text="${tag.spec.displayName}"
-        ></a>
-      </li>
-    </ul>
+    <div class="tags" th:each="tag : ${tags}">
+      <div class="tag-item">
+        <div class="tag-name">
+          <a
+                  th:href="@{${tag.status.permalink}}"
+                  th:text="${tag.spec.displayName}"
+          ></a>
+        </div>
+        <div class="tag-post-count">
+          (<span th:text="${tag.status.visiblePostCount}"></span>)
+        </div>
+      </div>
+    </div>
   </th:block>
 </html>

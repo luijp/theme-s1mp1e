@@ -1,0 +1,10 @@
+.tag-item,
+.category-item{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.tag-post-count,
+.category-post-count{
+    margin-left: 10px;
+}
