@@ -4,14 +4,54 @@
   th:replace="~{layout :: html(head = null,content = ~{::content})}"
 >
   <th:block th:fragment="content">
-    <ul>
-      <li th:each="post : ${posts.items}">
-        <a
-          th:href="@{${post.status.permalink}}"
-          th:text="${post.spec.title}"
-        ></a>
-      </li>
-    </ul>
+    <div class="slogan">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda dicta est impedit libero magnam minima mollitia natus perferendis reprehenderit.
+    </div>
+    <th:block th:fragment="post-list">
+    <div class="post-container">
+      <div class="post" th:each="post : ${posts.items}">
+        <div class="cover">
+          <a
+                  th:href="@{${post.status.permalink}}"
+                  th:text="${post.spec.cover}">
+          </a>
+        </div>
+        <div class="post-item">
+          <div class="pinned" th:if="!${post.spec.pinned}">#</div>
+          <div class="post-title">
+            <a
+                  th:href="@{${post.status.permalink}}"
+                  th:text="${post.spec.title}">
+            </a>
+          </div>
+          <div class="post-summary">
+            <a
+                    th:href="@{${post.status.permalink}}"
+                    th:text="${post.spec.excerpt.raw}">
+            </a>
+          </div>
+          <div class="post-meta">
+            <div class="categories-container" th:each="category : ${post.categories}">
+              <div class="category">
+                $<a
+                      th:href="@{${category.status.permalink}}"
+                      th:text="${category.spec.displayName}">
+              </a>
+              </div>
+            </div>
+            <div class="tags-container" th:each="tag : ${post.tags}">
+              <div class="tags">
+                #<a
+                        th:href="@{${tag.status.permalink}}"
+                        th:text="${tag.spec.displayName}">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </th:block>
     <a th:if="${posts.hasPrevious()}" th:href="@{${posts.prevUrl}}">上一页</a>
     <a th:if="${posts.hasNext()}" th:href="@{${posts.nextUrl}}">下一页</a>
   </th:block>
