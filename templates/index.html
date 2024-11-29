@@ -7,55 +7,8 @@
     <div class="slogan">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda dicta est impedit libero magnam minima mollitia natus perferendis reprehenderit.
     </div>
-    <th:block th:fragment="post-list">
-    <div class="post-container">
-      <div class="post" th:each="post : ${posts.items}">
-        <div class="cover" th:if="${post.spec.cover != ''}">
-          <a
-                  th:href="@{${post.status.permalink}}"
-                  th:text="${post.spec.cover}">
-          </a>
-        </div>
-        <div class="post-item">
-          <div class="prefix">#</div>
-          <div class="post-title">
-            <a
-                  th:href="@{${post.status.permalink}}"
-                  th:text="${post.spec.title}">
-            </a>
-          </div>
-          <div class="pinned" th:if="${post.spec.pinned}">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>pin</title><path d="M16,12V4H17V2H7V4H8V12L6,14V16H11.2V22H12.8V16H18V14L16,12Z" /></svg>
-          </div>
-          <div class="post-summary">
-            <a
-                    th:href="@{${post.status.permalink}}"
-                    th:text="${post.spec.excerpt.raw}">
-            </a>
-          </div>
-          <div class="post-meta">
-            <div class="categories-container" th:each="category : ${post.categories}">
-              <div class="categories">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>folder</title><path d="M10,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V8C22,6.89 21.1,6 20,6H12L10,4Z" /></svg>
-                <a
-                      th:href="@{${category.status.permalink}}"
-                      th:text="${category.spec.displayName}">
-              </a>
-              </div>
-            </div>
-            <div class="tags-container" th:each="tag : ${post.tags}">
-              <div class="tags">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>tag</title><path d="M5.5,7A1.5,1.5 0 0,1 4,5.5A1.5,1.5 0 0,1 5.5,4A1.5,1.5 0 0,1 7,5.5A1.5,1.5 0 0,1 5.5,7M21.41,11.58L12.41,2.58C12.05,2.22 11.55,2 11,2H4C2.89,2 2,2.89 2,4V11C2,11.55 2.22,12.05 2.59,12.41L11.58,21.41C11.95,21.77 12.45,22 13,22C13.55,22 14.05,21.77 14.41,21.41L21.41,14.41C21.78,14.05 22,13.55 22,13C22,12.44 21.77,11.94 21.41,11.58Z" /></svg>
-                <a
-                        th:href="@{${tag.status.permalink}}"
-                        th:text="${tag.spec.displayName}">
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <th:block th:replace="~{component/post-list::post-list}">
+
     </th:block>
     <a th:if="${posts.hasPrevious()}" th:href="@{${posts.prevUrl}}">上一页</a>
     <a th:if="${posts.hasNext()}" th:href="@{${posts.nextUrl}}">下一页</a>
