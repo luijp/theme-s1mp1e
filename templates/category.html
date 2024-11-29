@@ -5,7 +5,7 @@
 >
   <th:block th:fragment="content">
     <h1 th:text="${category.spec.displayName}"></h1>
-    <th:block th:replace="~{component/post-list::post-list}">
+    <th:block th:replace="~{component/post-list::post-list}" />
     <a th:if="${posts.hasPrevious()}" th:href="@{${posts.prevUrl}}">上一页</a>
     <a th:if="${posts.hasNext()}" th:href="@{${posts.nextUrl}}">下一页</a>
   </th:block>
