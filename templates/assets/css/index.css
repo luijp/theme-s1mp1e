@@ -66,3 +66,12 @@
         }
     }
 }
+
+.pager{
+    display: flex;
+    margin-top: 100px;
+    gap: 50px;
+    color: #702222;
+    text-decoration: underline;
+    justify-content: center;
+}

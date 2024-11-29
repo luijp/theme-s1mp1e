@@ -6,7 +6,18 @@
   <th:block th:fragment="content">
     <h1 th:text="${tag.spec.displayName}"></h1>
     <th:block th:replace="~{component/post-list::post-list}" />
-    <a th:if="${posts.hasPrevious()}" th:href="@{${posts.prevUrl}}">上一页</a>
-    <a th:if="${posts.hasNext()}" th:href="@{${posts.nextUrl}}">下一页</a>
+    <div class="pager" th:if="${posts.hasPrevious() || posts.hasNext()}">
+      <a
+              th:href="@{${posts.prevUrl}}"
+      >
+        <span>上一页</span>
+      </a>
+      <span th:text="${posts.page} +' / '+ ${posts.total}"></span>
+      <a
+              th:href="@{${posts.nextUrl}}"
+      >
+        <span>下一页</span>
+      </a>
+    </div>
   </th:block>
 </html>
