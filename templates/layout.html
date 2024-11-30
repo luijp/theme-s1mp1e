@@ -14,19 +14,23 @@
     <title th:text="${site.title}"></title>
     <link rel="stylesheet" th:href="@{/assets/css/style.css}" />
     <link rel="stylesheet" th:href="@{/assets/css/index.css}" />
-
+    <link rel="stylesheet" th:href="@{/assets/css/animate.min.css}" />
+    <link rel="icon" th:href="${theme.config.base.logo}" type="image/png">
     <script th:src="@{/assets/js/main.js}"></script>
     <th:block th:if="${head != null}">
       <th:block th:replace="${head}" />
     </th:block>
   </head>
   <body th:style="'background-color: '+${theme.config.style.background_color ?: '#f2f2f2'}">
-    <div class="container">
+    <div class="bg-decorate" th:style="'background: '+${theme.config.style.theme_color ?: '#CBD6FA'}"></div>
+    <div class="container animate__animated animate__fadeIn">
       <div class="header-container">
         <div class="logo-container">
           <div class="logo" th:style="|background: url(${theme.config.base.logo}) no-repeat; background-size: cover;|">
           </div>
-          <div class="title" th:text="${theme.config.base.title}"></div>
+          <div class="title animate__animated animate__flipInX" >
+            <a href="/" th:text="${theme.config.base.title}"></a>
+          </div>
         </div>
 
         <div class="menu-container" th:with="menu = ${menuFinder.getPrimary()}">
@@ -40,11 +44,12 @@
           </ul>
         </div>
       </div>
-      <div class="content">
+      <div class="content animate__animated animate__slideInUp">
         <th:block th:replace="${content}" />
       </div>
     </div>
-    <div class="footer-container">
+    <div class="footer-container" th:style="'background: '+${theme.config.style.primary_color ?: '#CBD6FA'}">
+      <div class="footer-decorate" th:style="'background: '+${theme.config.style.theme_color ?: '#a8b7ef'}"></div>
       <div class="footer">
         <div class="footer-left">
           <div class="copyright">&copy; 2024</div>
@@ -52,7 +57,13 @@
           <div class="theme">Powered By S1mp1e</div>
         </div>
         <div class="footer-right">
-          <div class="icp">萌备XXXXXXXXX号</div>
+          <div class="icp" th:if="${theme.config.base.icp_text}">
+            <a
+                    th:href="${theme.config.base.icp_text}"
+                    th:text="${theme.config.base.icp_url ?: '#'}"
+                    target="_blank"
+            ></a>
+          </div>
         </div>
       </div>
     </div>

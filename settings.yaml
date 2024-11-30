@@ -11,6 +11,14 @@ spec:
           name: background_color
           label: 背景颜色
           value: "#f2f2f2"
+        - $formkit: color
+          name: theme_color
+          label: 主题色
+          value: "#CBD4F8"
+        - $formkit: color
+          name: primary_color
+          label: 强调色
+          value: "#a8b7ef"
     - group: base
       label: 基础设置
       formSchema:
@@ -21,4 +29,16 @@ spec:
         - $formkit: attachment
           name: logo
           label: logo
+          value: ""
+        - $formkit: text
+          name: slogan
+          label: 标语
+          value: "Less is more."
+        - $formkit: text
+          name: icp_text
+          label: ICP 信息
+          value: ""
+        - $formkit: text
+          name: icp_url
+          label: ICP 链接
           value: ""

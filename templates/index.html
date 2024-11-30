@@ -4,8 +4,7 @@
   th:replace="~{layout :: html(head = null,content = ~{::content})}"
 >
   <th:block th:fragment="content">
-    <div class="slogan">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda dicta est impedit libero magnam minima mollitia natus perferendis reprehenderit.
+    <div class="slogan animate__animated animate__zoomIn" th:text="${theme.config.base.slogan ?: 'Less is More.'}">
     </div>
     <th:block th:replace="~{component/post-list::post-list}">
 

@@ -8,12 +8,11 @@ body {
   height: 100vh;
   min-width: 1200px;
   line-height: 2rem;
-  &::after{
+  .bg-decorate{
     content: "";
     display: block;
     height: 1000px;
     width: 1000px;
-    background: #CBD6FA;
     position: absolute;
     left: -300px;
     top: -750px;
@@ -75,21 +74,19 @@ a:focus {
 .footer-container{
   font-size: 0.8rem;
   color: #615d5d;
-  background: #CBD4F8;
   position: absolute;
   bottom: 0;
   width: 100vw;
   overflow: hidden;
   padding: 0 40px;
   z-index: 1;
-  &::after{
+  .footer-decorate{
     content: "";
     display: block;
     height: 1000px;
     width: 1000px;
     top: 0;
     left: 0;
-    background: #a8b7ef;
     position: absolute;
     border-radius: 30% 70% 70% 30% / 100% 100% 0 0;
     z-index: -1;
