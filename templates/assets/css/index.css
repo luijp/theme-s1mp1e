@@ -2,6 +2,9 @@
     font-size: 1.5rem;
     text-align: center;
     padding: 80px 20px;
+    font-family: 'Smiley Sans Oblique', serif;
+    color: #434040;
+    text-shadow: -1px -1px 15px #e3e3e3;
 }
 
 .post{
@@ -74,4 +77,12 @@
     color: #702222;
     text-decoration: underline;
     justify-content: center;
+}
+
+
+@font-face {
+    font-family: 'Smiley Sans Oblique';
+    src: url('../font/SmileySans-Oblique.ttf.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }

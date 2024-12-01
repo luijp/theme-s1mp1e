@@ -6,11 +6,10 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  min-width: 1200px;
+  min-width: 1000px;
   line-height: 2rem;
+  font-family: 'HarmonyOS Sans SC', serif;
   .bg-decorate{
-    content: "";
-    display: block;
     height: 1000px;
     width: 1000px;
     position: absolute;
@@ -69,23 +68,25 @@ a:focus {
       li{
         margin-left: 20px;
         color: #615d5d;
+        text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.3);
       }
     }
-
   }
+}
+
+.content{
+  text-shadow: 1px 1px 20px rgba(239, 239, 239, 0.3);
 }
 .footer-container{
   font-size: 0.8rem;
   color: #615d5d;
   position: absolute;
   bottom: 0;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
   padding: 0 40px;
   z-index: 1;
   .footer-decorate{
-    content: "";
-    display: block;
     height: 1000px;
     width: 1000px;
     top: 0;
@@ -135,4 +136,11 @@ a:focus {
   100%{
     border-radius: 27% 73% 36% 64% / 14% 58% 42% 86%;
   }
+}
+
+@font-face {
+  font-family: 'HarmonyOS Sans SC';
+  src: url('../font/HarmonyOS_Sans_SC_Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
