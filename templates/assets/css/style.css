@@ -16,7 +16,10 @@ body {
     position: absolute;
     left: -300px;
     top: -750px;
-    border-radius: 27% 73% 36% 64% / 14% 58% 42% 86% ;
+    animation-name: headerAnimation;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
     z-index: -1;
   }
 }
@@ -88,7 +91,10 @@ a:focus {
     top: 0;
     left: 0;
     position: absolute;
-    border-radius: 30% 70% 70% 30% / 100% 100% 0 0;
+    animation-name: footerAnimation;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
     z-index: -1;
   }
   .footer{
@@ -107,6 +113,26 @@ a:focus {
   }
 }
 
-comment-form{
-  margin-top: 20px !important;
+@keyframes footerAnimation {
+  0%{
+    border-radius: 37% 63% 26% 74% / 25% 86% 14% 75%;
+  }
+  50%{
+    border-radius: 35% 65% 26% 74% / 68% 86% 14% 32%;
+  }
+  100%{
+    border-radius: 37% 63% 26% 74% / 25% 86% 14% 75%;
+  }
+}
+
+@keyframes headerAnimation {
+  0%{
+    border-radius: 27% 73% 36% 64% / 14% 58% 42% 86%;
+  }
+  50%{
+    border-radius: 30% 70% 37% 63% / 30% 51% 49% 70% ;
+  }
+  100%{
+    border-radius: 27% 73% 36% 64% / 14% 58% 42% 86%;
+  }
 }
