@@ -22,8 +22,8 @@
     </th:block>
   </head>
   <body th:style="'background-color: '+${theme.config.style.background_color ?: '#f2f2f2'}">
-    <div class="bg-decorate" th:style="'background: '+${theme.config.style.theme_color ?: '#CBD6FA'}"></div>
     <div class="container animate__animated animate__fadeIn">
+      <div class="bg-decorate" th:style="'background: '+${theme.config.style.theme_color ?: '#CBD6FA'}"></div>
       <div class="header-container">
         <div class="logo-container">
           <div class="logo" th:style="|background: url(${theme.config.base.logo}) no-repeat; background-size: cover;|">
@@ -52,15 +52,15 @@
       <div class="footer-decorate" th:style="'background: '+${theme.config.style.theme_color ?: '#a8b7ef'}"></div>
       <div class="footer">
         <div class="footer-left">
-          <div class="copyright">&copy; 2024</div>
+          <div class="copyright" th:utext="${theme.config.base.copyright}"></div>
           <div class="site-info"></div>
           <div class="theme">Powered By S1mp1e</div>
         </div>
         <div class="footer-right">
           <div class="icp" th:if="${theme.config.base.icp_text}">
             <a
-                    th:href="${theme.config.base.icp_text}"
-                    th:text="${theme.config.base.icp_url ?: '#'}"
+                    th:href="${theme.config.base.icp_url ?: '#'}"
+                    th:text="${theme.config.base.icp_text}"
                     target="_blank"
             ></a>
           </div>

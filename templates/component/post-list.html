@@ -6,9 +6,8 @@
   <div class="post-container">
     <div class="post" th:each="post : ${posts.items}">
       <div class="cover" th:if="${post.spec.cover != ''}">
-        <a
-                th:href="@{${post.status.permalink}}"
-                th:text="${post.spec.cover}">
+        <a th:href="@{${post.status.permalink}}">
+          <img th:src="${post.spec.cover}" alt="">
         </a>
       </div>
       <div class="post-item">
@@ -25,7 +24,7 @@
         <div class="post-summary">
           <a
                   th:href="@{${post.status.permalink}}"
-                  th:text="${post.spec.excerpt.raw}">
+                  th:text="${post.status.excerpt}">
           </a>
         </div>
         <div class="post-meta">

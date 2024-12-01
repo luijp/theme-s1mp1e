@@ -12,12 +12,14 @@
     <div class="pager" th:if="${posts.hasPrevious() || posts.hasNext()}">
       <a
               th:href="@{${posts.prevUrl}}"
+              th:if="${posts.hasPrevious()}"
       >
         <span>上一页</span>
       </a>
-      <span th:text="${posts.page} +' / '+ ${posts.total}"></span>
+
       <a
               th:href="@{${posts.nextUrl}}"
+              th:if="${posts.hasNext()}"
       >
         <span>下一页</span>
       </a>

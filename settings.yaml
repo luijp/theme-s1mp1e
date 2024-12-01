@@ -35,6 +35,10 @@ spec:
           label: 标语
           value: "Less is more."
         - $formkit: text
+          name: copyright
+          label: 版权信息
+          value: "&copy; 2024"
+        - $formkit: text
           name: icp_text
           label: ICP 信息
           value: ""

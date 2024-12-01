@@ -9,22 +9,28 @@
 
 .post{
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
+    margin-bottom: 100px;
 }
 
 .content{
     margin-top: 40px;
 }
 .cover{
-    height: 180px;
-    width: 320px;
+    img{
+        height: 180px;
+        width: 320px;
+        object-fit: cover;
+    }
+
 }
 .post-container{
     margin-top: 60px;
 }
 .post-item{
+    margin-left: 30px;
     .pinned{
         display: inline-block;
         svg{
