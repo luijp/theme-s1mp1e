@@ -1,0 +1,75 @@
+<!doctype html>
+<html
+        xmlns:th="https://www.thymeleaf.org"
+        th:replace="~{layout :: html(head = ~{::head}, content = ~{::content})}"
+>
+
+<th:block th:fragment="head">
+    <link rel="stylesheet" th:href="|@{/assets/css/moment.css}?v=${theme.spec.version}|" />
+    <script th:src="|@{/assets/js/moment.js}?v=${theme.spec.version}|"></script>
+</th:block>
+
+<th:block th:fragment="content">
+
+    <div class="tags-container">
+        <div class="tag-item" th:each="tag : ${tags}">
+            <a
+                    th:href="|/moments?tag=${tag.name}|"
+                    th:classappend="${#lists.contains(param.tag, tag.name) ? 'active' : ''}"
+            >
+                <span th:text="${tag.name}"></span>
+            </a>
+        </div>
+    </div>
+
+    <div class="moments-container">
+        <div class="comment-item" th:each="moment : ${moments.items}" th:with="content=${moment.spec.content}">
+            <div th:if="${not #strings.isEmpty(content.html)}" th:utext="${content.html}"></div>
+            <th:block th:if="${not #lists.isEmpty(content.medium)}" th:each="momentItem : ${content.medium}">
+                <img th:if="${momentItem.type.name == 'PHOTO'}" th:src="${momentItem.url}" />
+                <video th:if="${momentItem.type.name == 'VIDEO'}" th:src="${momentItem.url}"></video>
+                <audio th:if="${momentItem.type.name == 'AUDIO'}" th:src="${momentItem.url}" controls="true"></audio>
+            </th:block>
+            <div class="meta-info">
+                <div class="like" th:id="${moment.metadata.name}" onclick="vote(this)">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>thumb-up</title><path d="M23,10C23,8.89 22.1,8 21,8H14.68L15.64,3.43C15.66,3.33 15.67,3.22 15.67,3.11C15.67,2.7 15.5,2.32 15.23,2.05L14.17,1L7.59,7.58C7.22,7.95 7,8.45 7,9V19A2,2 0 0,0 9,21H18C18.83,21 19.54,20.5 19.84,19.78L22.86,12.73C22.95,12.5 23,12.26 23,12V10M1,21H5V9H1V21Z" /></svg>
+                    <span th:text="${moment.stats.upvote}"></span>
+                </div>
+
+                <div onclick="triggerMoment(this)" style="cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>comment</title><path d="M9,22A1,1 0 0,1 8,21V18H4A2,2 0 0,1 2,16V4C2,2.89 2.9,2 4,2H20A2,2 0 0,1 22,4V16A2,2 0 0,1 20,18H13.9L10.2,21.71C10,21.9 9.75,22 9.5,22V22H9Z" /></svg>
+                    <span th:text="${moment.stats.approvedComment}" ></span>
+                </div>
+
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>calendar-range</title><path d="M9,10H7V12H9V10M13,10H11V12H13V10M17,10H15V12H17V10M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z" /></svg>
+                    <span th:text="${#temporals.format(moment.spec.releaseTime, 'yyyy-MM-dd HH:mm:ss')}"></span>
+                </div>
+            </div>
+
+            <div class="comment animate__animated animate__fadeIn" th:attr="name=${moment.metadata.name}">
+                <halo:comment group="moment.halo.run" kind="Moment" th:attr="name=${moment.metadata.name}"/>
+            </div>
+            <hr>
+        </div>
+
+    </div>
+
+    <div class="pager" th:if="${moments.hasPrevious() || moments.hasNext()}">
+        <a
+                th:href="@{${moments.prevUrl}}"
+                th:if="${moments.hasPrevious()}"
+        >
+            <span>上一页</span>
+        </a>
+
+        <a
+                th:href="@{${moments.nextUrl}}"
+                th:if="${moments.hasNext()}"
+        >
+            <span>下一页</span>
+        </a>
+    </div>
+
+</th:block>
+</html>

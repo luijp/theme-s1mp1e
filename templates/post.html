@@ -4,8 +4,8 @@
   th:replace="~{layout :: html(head = ~{::head},content = ~{::content})}"
 >
   <th:block th:fragment="head">
-    <link rel="stylesheet" th:href="@{/assets/css/github-markdown-light.css}" />
-    <link rel="stylesheet" th:href="@{/assets/css/comment.css}" />
+    <link rel="stylesheet" th:href="|@{/assets/css/github-markdown-light.css}?v=${theme.spec.version}|" />
+    <link rel="stylesheet" th:href="|@{/assets/css/comment.css}?v=${theme.spec.version}|" />
   </th:block>
 
   <th:block th:fragment="content">

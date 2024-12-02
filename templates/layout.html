@@ -12,11 +12,10 @@
       content="width=device-width, initial-scale=1, maximum-scale=2"
     />
     <title th:text="${site.title}"></title>
-    <link rel="stylesheet" th:href="@{/assets/css/style.css}" />
-    <link rel="stylesheet" th:href="@{/assets/css/index.css}" />
-    <link rel="stylesheet" th:href="@{/assets/css/animate.min.css}" />
+    <link rel="stylesheet" th:href="|@{/assets/css/style.css}?v=${theme.spec.version}|" />
+    <link rel="stylesheet" th:href="|@{/assets/css/index.css}?v=${theme.spec.version}|" />
+    <link rel="stylesheet" th:href="|@{/assets/css/animate.min.css}?v=${theme.spec.version}|" />
     <link rel="icon" th:href="${theme.config.base.logo}" type="image/png">
-    <script th:src="@{/assets/js/main.js}"></script>
     <th:block th:if="${head != null}">
       <th:block th:replace="${head}" />
     </th:block>
@@ -59,7 +58,7 @@
         <div class="footer-right">
           <div class="icp" th:if="${theme.config.base.icp_text}">
             <a
-                    th:href="${theme.config.base.icp_url ?: '#'}"
+                    th:href="${theme.config.base.icp_url ?: 'javascript:void(0);'}"
                     th:text="${theme.config.base.icp_text}"
                     target="_blank"
             ></a>

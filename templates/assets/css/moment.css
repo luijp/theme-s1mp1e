@@ -1,0 +1,64 @@
+.tags-container{
+    display: flex;
+    .tag-item{
+        margin-right: 10px;
+        color: #909399;
+        font-size: 0.9rem;
+        background: #E9E9EB;
+        padding: 0 10px;
+        border-radius: 5px;
+        font-weight: 700;
+        border: 1px solid #cdd2da;
+        .active{
+            color: #702222;
+        }
+    }
+}
+
+.moments-container{
+    margin-top: 50px;
+    img,video{
+        max-width: 400px;
+        max-height: 400px;
+    }
+    hr{
+        border: none;
+        background: #dddddd;
+        height: 1px;
+    }
+    .comment-item{
+        margin-bottom: 30px;
+    }
+    .meta-info{
+        font-size: 0.8rem;
+        color: #b1aaaa;
+        display: flex;
+        .like{
+            cursor: pointer;
+        }
+        .active{
+            cursor: not-allowed;
+            pointer-events: none;
+            color: #702222;
+            svg{
+                fill: #702222;
+            }
+
+        }
+        svg{
+            height: 15px;
+            width: auto;
+            transform: translate(2px,3px);
+            fill: #959090;
+        }
+        span{
+            margin-right: 5px;
+            margin-left: 2px;
+        }
+
+    }
+    .comment{
+        display: none;
+    }
+
+}
