@@ -22,6 +22,9 @@
   </head>
   <body th:style="'background-color: '+${theme.config.style.background_color ?: '#f2f2f2'}">
     <div class="container animate__animated animate__fadeIn">
+      <div class="to-top" onclick="toTop()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>arrow-up-bold</title><path d="M15,20H9V12H4.16L12,4.16L19.84,12H15V20Z" /></svg>
+      </div>
       <div class="bg-decorate" th:style="'background: '+${theme.config.style.theme_color ?: '#CBD6FA'}"></div>
       <div class="header-container">
         <div class="logo-container">
@@ -69,6 +72,23 @@
     <script>
       const domainName = window.location.hostname;
       document.querySelector('.site-info').innerText = domainName;
+
+      const toTopEle = document.querySelector('.to-top');
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        if(scrollY > 100){
+          toTopEle.style.display = 'flex'
+        }else{
+          toTopEle.style.display = 'none'
+        }
+      })
+
+      const toTop = ()=>{
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        })
+      }
     </script>
   </body>
 </html>

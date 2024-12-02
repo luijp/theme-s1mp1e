@@ -13,6 +13,26 @@ body {
   flex-direction: column;
 
 }
+
+.to-top{
+  position: fixed;
+  bottom: 130px;
+  right: 100px;
+  border: 1px solid #000;
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  cursor: pointer;
+  svg{
+    height: 30px;
+    fill: #615d5d;
+  }
+
+}
+
 .bg-decorate{
   height: 1000px;
   width: 1000px;
