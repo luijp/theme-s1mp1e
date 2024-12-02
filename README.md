@@ -6,6 +6,6 @@
 
 ## Screen Shot
 
-![](https://github.com/luijp/theme-s1mp1e/blob/main/ScreenShot1.png)
+![ScreenShot](https://github.com/luijp/theme-s1mp1e/blob/main/ScreenShot1.jpg?raw=true)
 
-![](https://github.com/luijp/theme-s1mp1e/blob/main/ScreenShot2.png)
+![ScreenShot](https://github.com/luijp/theme-s1mp1e/blob/main/ScreenShot2.jpg?raw=true)
