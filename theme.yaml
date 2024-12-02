@@ -3,18 +3,18 @@ kind: Theme
 metadata:
   name: theme-s1mp1e
 spec:
-  displayName: Theme S1mp1e
+  displayName: S1mp1e
   author:
     name: Lyu, Junpeng
     website: "https://github.com/luijp"
-  description: Halo 2.0 Theme base on Thymeleaf
+  description: A Simple Theme
   logo: "https://www.halo.run/logo"
   homepage: "https://github.com/luijp/theme-s1mp1e"
   repo: "https://github.com/luijp/theme-s1mp1e"
   issues: "https://github.com/luijp/theme-s1mp1e/issues"
   settingName: "theme-s1mp1e-setting"
   configMapName: "theme-s1mp1e-configMap"
-  version: "1.0.1"
+  version: "1.0.2"
   requires: ">=2.0.0"
   license:
     - name: "GPL-3.0"

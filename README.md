@@ -1,5 +1,11 @@
-# Theme Starter
+# S1mp1e
 
-Halo 2.0 的基础主题开发模板，包含了主题的基本目录结构。
+## Preview
 
-主题开发文档可查阅：<https://docs.halo.run/2.0.0-SNAPSHOT/developer-guide/theme/prepare>
+[Preview Link](https://blog.luijp.cn/?preview-theme=theme-s1mp1e)
+
+## Screen Shot
+
+![](https://github.com/luijp/theme-s1mp1e/blob/main/ScreenShot1.png)
+
+![](https://github.com/luijp/theme-s1mp1e/blob/main/ScreenShot2.png)
