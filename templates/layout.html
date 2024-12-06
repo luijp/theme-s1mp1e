@@ -11,7 +11,8 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=2"
     />
-    <title th:text="${site.title}"></title>
+    <title th:if="${title} != null" th:text="${title} + ' - ' + ${site.title}"></title>
+    <title th:if="${title} == null" th:text="${site.title}"></title>
     <link rel="stylesheet" th:href="|@{/assets/css/style.css}?v=${theme.spec.version}|" />
     <link rel="stylesheet" th:href="|@{/assets/css/index.css}?v=${theme.spec.version}|" />
     <link rel="stylesheet" th:href="|@{/assets/css/animate.min.css}?v=${theme.spec.version}|" />

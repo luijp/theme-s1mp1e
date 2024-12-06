@@ -99,6 +99,14 @@ a:focus {
 
 .content{
   text-shadow: 1px 1px 20px rgba(239, 239, 239, 0.3);
+  .content-title{
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bolder;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-shadow: 1px 1px 20px rgba(255, 255, 255, 0.3);
+  }
 }
 .footer-container{
   font-size: 0.8rem;

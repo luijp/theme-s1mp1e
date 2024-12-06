@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
   xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{layout :: html(head = ~{::head},content = ~{::content})}"
+  th:replace="~{layout :: html(head = ~{::head}, title=${singlePage.spec.title}, content = ~{::content})}"
 >
 <th:block th:fragment="head">
   <link rel="stylesheet" th:href="|@{/assets/css/github-markdown-light.css}?v=${theme.spec.version}|" />
@@ -9,6 +9,7 @@
 </th:block>
 
   <th:block th:fragment="content">
+    <div class="content-title" th:text="${singlePage.spec.title}"></div>
     <div class="markdown-body" th:utext="${singlePage.content.content}"></div>
     <div class="comment">
       <h2>评论</h2>
